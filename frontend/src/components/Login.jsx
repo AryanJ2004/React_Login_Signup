@@ -13,7 +13,7 @@ export default function Login() {
     setError('');
 
     try {
-      const response = await axios.post('https://react-login-signup.onrender.com/api/auth/login', { email, password });
+      const response = await axios.post('https://loginsignupbackend.vercel.app/api/auth/login', { email, password });
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
       navigate('/dashboard');

@@ -22,7 +22,7 @@ export default function Dashboard() {
       }
 
       try {
-        const response = await axios.get('https://react-login-signup.onrender.com/api/auth/user', {
+        const response = await axios.get('https://loginsignupbackend.vercel.app/api/auth/user', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(response.data.user);

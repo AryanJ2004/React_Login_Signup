@@ -14,7 +14,7 @@ export default function Signup() {
     setError('');
 
     try {
-      const response = await axios.post('https://react-login-signup.onrender.com/api/auth/signup', {
+      const response = await axios.post('https://loginsignupbackend.vercel.app/api/auth/signup', {
         username,
         email,
         password
