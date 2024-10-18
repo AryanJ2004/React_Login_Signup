@@ -10,9 +10,16 @@ const app = express();
 // Middleware
 
 app.use(express.json());
+const allowedOrigins = ['http://localhost:5173', 'https://reactloginsignup.vercel.app']; // Add your Vercel frontend here
+
 app.use(cors({
-  origin: 'http://localhost:5173',  // Allow requests from your frontend
-  credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
 }));
 app.get('/api', (req, res) => {
   res.json({ message: "CORS enabled" });
